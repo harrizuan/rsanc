@@ -209,10 +209,6 @@ export function Header({ active = "home" }: { active?: string }) {
             </Link>
           ))}
         </nav>
-        <div style={{ display: "flex", gap: 20, padding: "32px 28px" }}>
-          <a href="#" style={{ color: "rgba(255,255,255,0.35)" }}><IG /></a>
-          <a href="#" style={{ color: "rgba(255,255,255,0.35)" }}><TK /></a>
-        </div>
       </div>
     </>
   );
@@ -242,8 +238,6 @@ export function Newsletter() {
           </button>
         </form>
         <div style={{ display: "flex", justifyContent: "center", gap: 20, marginTop: 28 }}>
-          <a href="#" style={{ color: "rgba(255,255,255,0.35)" }}><IG /></a>
-          <a href="#" style={{ color: "rgba(255,255,255,0.35)" }}><TK /></a>
         </div>
       </div>
     </section>

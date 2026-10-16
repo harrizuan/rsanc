@@ -1,5 +1,5 @@
 "use client";
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Header, Newsletter, Footer } from "../../components/layout-parts";
@@ -17,29 +17,17 @@ const PRODUCT = {
   ],
 };
 
-/* ─── Icons ─── */
-const Minus = () => (
-  <svg width="12" height="2" viewBox="0 0 12 2" fill="currentColor">
-    <rect width="12" height="1.5" rx="0.75"/>
-  </svg>
-);
-const Plus = () => (
-  <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-    <rect x="5.25" width="1.5" height="12" rx="0.75"/>
-    <rect y="5.25" width="12" height="1.5" rx="0.75"/>
-  </svg>
-);
+/* ─── WhatsApp link ─── */
+const WA_NUMBER = "60109513908"; // +60 10-951 3908
 
 export default function ProductPage() {
   const [selectedImg, setSelectedImg] = useState(0);
   const [selectedSize] = useState("One Size");
-  const [qty, setQty] = useState(1);
-  const [added, setAdded] = useState(false);
 
-  const handleAdd = useCallback(() => {
-    setAdded(true);
-    setTimeout(() => setAdded(false), 2200);
-  }, []);
+  const waText = encodeURIComponent(
+    `Hi! I want this — ${PRODUCT.title} ${PRODUCT.subtitle} (${PRODUCT.price}). Please let me know the details!`
+  );
+  const waLink = `https://wa.me/${WA_NUMBER}?text=${waText}`;
 
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "#000", color: "#fff" }}>
@@ -205,66 +193,37 @@ export default function ProductPage() {
               </div>
             </div>
 
-            {/* Qty + Add to cart */}
-            <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 28 }}>
-              {/* Qty stepper */}
-              <div
+            {/* I WANT THIS → WhatsApp */}
+            <div style={{ marginBottom: 28 }}>
+              <a
+                href={waLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  height: 50,
-                  border: "1px solid rgba(255,255,255,0.14)",
-                  
-                  overflow: "hidden",
-                  flexShrink: 0,
-                }}
-              >
-                <button
-                  onClick={() => setQty(Math.max(1, qty - 1))}
-                  aria-label="Decrease"
-                  style={{ width: 46, height: "100%", display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(255,255,255,0.55)", transition: "background 0.15s" }}
-                  className="hover:bg-white/5"
-                >
-                  <Minus />
-                </button>
-                <span
-                  style={{ width: 36, textAlign: "center", fontSize: 13, letterSpacing: "0.06em" }}
-                  aria-live="polite"
-                >
-                  {qty}
-                </span>
-                <button
-                  onClick={() => setQty(qty + 1)}
-                  aria-label="Increase"
-                  style={{ width: 46, height: "100%", display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(255,255,255,0.55)", transition: "background 0.15s" }}
-                  className="hover:bg-white/5"
-                >
-                  <Plus />
-                </button>
-              </div>
-
-              {/* Add to Cart button */}
-              <button
-                onClick={handleAdd}
-                style={{
-                  flex: 1,
-                  minWidth: 140,
-                  height: 50,
-                  background: added ? "#111" : "#fff",
-                  color: added ? "rgba(255,255,255,0.8)" : "#000",
-                  border: added ? "1px solid rgba(255,255,255,0.15)" : "none",
-                  
-                  fontSize: 11,
-                  letterSpacing: "0.16em",
+                  justifyContent: "center",
+                  width: "100%",
+                  height: 54,
+                  background: "#fff",
+                  color: "#000",
+                  fontSize: 12,
+                  letterSpacing: "0.22em",
                   textTransform: "uppercase",
-                  fontWeight: 600,
+                  fontWeight: 700,
                   fontFamily: "inherit",
-                  cursor: "pointer",
-                  transition: "all 0.2s",
+                  textDecoration: "none",
+                  transition: "background 0.2s, color 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.background = "#e5e5e5";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.background = "#fff";
                 }}
               >
-                {added ? "Added ✓" : "Add to Cart"}
-              </button>
+                I WANT THIS
+              </a>
             </div>
 
             {/* Divider */}

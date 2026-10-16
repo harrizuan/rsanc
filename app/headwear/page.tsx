@@ -26,22 +26,6 @@ export default function HeadwearPage() {
           HEADWEAR
         </h1>
 
-        {/* Filters */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "1px solid rgba(255,255,255,0.08)", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "10px 0", marginBottom: 44 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-            <span style={{ fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)" }}>Filter:</span>
-            {["Availability", "Sort by"].map((f) => (
-              <button key={f} style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", fontFamily: "inherit" }}>
-                {f}
-                <svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M1 1l3.5 3L8 1" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>
-              </button>
-            ))}
-          </div>
-          <span style={{ fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", color: "rgba(255,255,255,0.25)" }}>
-            {PRODUCTS.length} Product{PRODUCTS.length !== 1 ? "s" : ""}
-          </span>
-        </div>
-
         {/* Product grid */}
         <ul style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(240px, 100%), 1fr))", columnGap: 20, rowGap: 44, listStyle: "none", padding: 0, margin: 0 }}>
           {PRODUCTS.map((p) => (
