@@ -34,7 +34,7 @@ export default function HeadwearPage() {
         </h1>
 
         {/* Product grid */}
-        <ul style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(240px, 100%), 1fr))", columnGap: 20, rowGap: 44, listStyle: "none", padding: 0, margin: 0 }}>
+        <ul style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", columnGap: "clamp(12px, 3vw, 20px)", rowGap: "clamp(28px, 6vw, 44px)", listStyle: "none", padding: 0, margin: 0 }}>
           {PRODUCTS.map((p) => (
             <li key={p.handle}>
               <ProductCard {...p} />

@@ -27,12 +27,12 @@ export default function HomePage() {
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "#000", color: "#fff" }}>
       <Header active="home" />
 
-      <main style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "48px 24px 72px" }}>
+      <main style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(24px, 5vw, 48px) clamp(14px, 4vw, 24px) 72px" }}>
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(320px, 100%), 1fr))",
-            gap: "clamp(24px, 5vw, 56px)",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gap: "clamp(12px, 4vw, 56px)",
             width: "100%",
             maxWidth: 880,
           }}
