@@ -1,69 +1,86 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { Header, Newsletter, Footer } from "./components/layout-parts";
 
-export default function Home() {
+export const metadata: Metadata = { title: "RSANC DEADZ" };
+
+const FEATURED = {
+  handle: "r-sanc-trucker-cap-ss1-black",
+  title: "R Sanc Trucker Cap SS1",
+  subtitle: "Black",
+  price: "MYR RM 120.00",
+  images: ["/images/cap-front.png", "/images/cap-angle.png"],
+};
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "#000", color: "#fff" }}>
+      <Header active="home" />
+      <main style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "48px 24px 72px" }}>
+        <FeaturedProduct {...FEATURED} />
       </main>
+      <Newsletter />
+      <Footer />
     </div>
+  );
+}
+
+function FeaturedProduct({ handle, title, subtitle, price, images }: {
+  handle: string; title: string; subtitle: string; price: string; images: string[];
+}) {
+  return (
+    /* .product-card triggers CSS hover → swaps .product-img-main ↔ .product-img-alt */
+    <Link
+      href={`/products/${handle}`}
+      className="product-card"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 20,
+        textDecoration: "none",
+        color: "inherit",
+        width: "100%",
+        maxWidth: 560,
+      }}
+    >
+      {/* Image container — no background box, images float on black */}
+      <div style={{ position: "relative", width: "100%", aspectRatio: "1/1" }}>
+
+        {/* Default (front) — visible */}
+        <Image
+          src={images[0]}
+          alt={title}
+          fill
+          priority
+          unoptimized
+          sizes="(max-width: 640px) 92vw, 560px"
+          className="product-img-main object-contain"
+        />
+
+        {/* Hover (angle) — hidden by default, shown by CSS on .product-card:hover */}
+        {images[1] && (
+          <Image
+            src={images[1]}
+            alt={`${title} — alternate`}
+            fill
+            unoptimized
+            sizes="(max-width: 640px) 92vw, 560px"
+            className="product-img-alt object-contain"
+          />
+        )}
+      </div>
+
+      {/* Product text — center aligned */}
+      <div style={{ textAlign: "center" }}>
+        <p style={{ fontSize: 12, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.85)", marginBottom: 6 }}>
+          {title} — {subtitle}
+        </p>
+        <p style={{ fontSize: 13, letterSpacing: "0.08em", color: "rgba(255,255,255,0.5)" }}>
+          {price}
+        </p>
+      </div>
+    </Link>
   );
 }
