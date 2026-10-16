@@ -25,7 +25,7 @@ export default function ProductPage() {
   const [selectedSize] = useState("One Size");
 
   const waText = encodeURIComponent(
-    `Hi! I want this — ${PRODUCT.title} ${PRODUCT.subtitle} (${PRODUCT.price}). Please let me know the details!`
+    `Hey bro I want this RSANC black trucker cap rm120`
   );
   const waLink = `https://wa.me/${WA_NUMBER}?text=${waText}`;
 
