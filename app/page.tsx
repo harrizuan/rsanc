@@ -20,6 +20,20 @@ const PRODUCTS = [
     price: "RM 120",
     images: ["/images/cap-white-front.png", "/images/cap-white-angle.png"],
   },
+  {
+    handle: "r-sanc-tshirt-ss1-black",
+    title: "R Sanc T-Shirt SS1",
+    subtitle: "Black",
+    price: "RM 120",
+    images: ["/images/tshirt-black-made.png", "/images/tshirt-black-deadz.png"],
+  },
+  {
+    handle: "r-sanc-tshirt-ss1-white",
+    title: "R Sanc T-Shirt SS1",
+    subtitle: "White",
+    price: "RM 120",
+    images: ["/images/tshirt-white-made.png", "/images/tshirt-white-deadz.png"],
+  },
 ];
 
 export default function HomePage() {

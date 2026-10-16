@@ -29,8 +29,9 @@ const CloseIcon = () => (
 );
 
 const NAV = [
-  { label: "HOME",     href: "/",         key: "home" },
-  { label: "HEADWEAR", href: "/headwear", key: "headwear" },
+  { label: "HOME",     href: "/",          key: "home" },
+  { label: "HEADWEAR", href: "/headwear",  key: "headwear" },
+  { label: "T-SHIRTS", href: "/t-shirts",  key: "t-shirts" },
 ];
 
 /* ═══════════════════════════════════════════════════════════════
