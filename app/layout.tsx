@@ -9,11 +9,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "RSANC DEADZ",
-    template: "%s — RSANC DEADZ",
-  },
-  description: "RSANC DEADZ — Streetwear from the underground.",
+  title: "RSANC DEADZ",
   icons: { icon: "/images/logo.png" },
 };
 

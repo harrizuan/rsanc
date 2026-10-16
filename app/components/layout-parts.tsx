@@ -209,6 +209,17 @@ export function Header({ active = "home" }: { active?: string }) {
             </Link>
           ))}
         </nav>
+        <div style={{ padding: "32px 28px" }}>
+          <a
+            href="https://www.instagram.com/yvesrsanc"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "rgba(255,255,255,0.35)" }}
+            aria-label="Instagram"
+          >
+            <IG />
+          </a>
+        </div>
       </div>
     </>
   );
@@ -238,6 +249,17 @@ export function Newsletter() {
           </button>
         </form>
         <div style={{ display: "flex", justifyContent: "center", gap: 20, marginTop: 28 }}>
+          <a
+            href="https://www.instagram.com/yvesrsanc"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "rgba(255,255,255,0.35)", transition: "color 0.2s" }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.8)"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.35)"; }}
+            aria-label="Instagram"
+          >
+            <IG />
+          </a>
         </div>
       </div>
     </section>

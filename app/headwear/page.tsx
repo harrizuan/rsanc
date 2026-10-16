@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Header, Newsletter, Footer } from "../components/layout-parts";
 
-export const metadata: Metadata = { title: "Headwear" };
+export const metadata: Metadata = { title: "RSANC DEADZ" };
 
 const PRODUCTS = [
   {
