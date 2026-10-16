@@ -7,7 +7,7 @@ import { Header, Newsletter, Footer } from "../../components/layout-parts";
 const PRODUCT = {
   title: "R Sanc Trucker Cap SS1",
   subtitle: "Black",
-  price: "MYR RM 120.00",
+  price: "RM 120",
   sizes: ["One Size"],
   description: `Drop SS1. Trucker silhouette with structured front panel, breathable mesh back, and snapback closure. Black colourway.\n\nOne size fits most. Adjustable snapback closure.`,
   images: [

@@ -283,7 +283,7 @@ export function Footer() {
           <div>
             <p style={{ fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(255,255,255,0.22)", marginBottom: 5 }}>Country / Region</p>
             <button style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 11, color: "rgba(255,255,255,0.45)", fontFamily: "inherit" }}>
-              Malaysia | MYR RM
+              Malaysia | RM
               <svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M1 1l3.5 3L8 1" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>
             </button>
           </div>

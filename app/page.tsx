@@ -10,14 +10,14 @@ const PRODUCTS = [
     handle: "r-sanc-trucker-cap-ss1-black",
     title: "R Sanc Trucker Cap SS1",
     subtitle: "Black",
-    price: "MYR RM 120.00",
+    price: "RM 120",
     images: ["/images/cap-front.png", "/images/cap-angle.png"],
   },
   {
     handle: "r-sanc-trucker-cap-ss1-white",
     title: "R Sanc Trucker Cap SS1",
     subtitle: "White",
-    price: "MYR RM 120.00",
+    price: "RM 120",
     images: ["/images/cap-white-front.png", "/images/cap-white-angle.png"],
   },
 ];
